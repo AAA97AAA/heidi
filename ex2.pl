@@ -53,19 +53,19 @@ htoT_oneorder(safermar, [wheeo, wheeo]).
 
 	ttoH([], []).
 	% deux sifflets orders
-	ttoH(X, Y):- X = [A | B],
-    			B =  [C | D],
-    			ttoH(D, Restesol),
+	ttoH(X, Y):- X = [A | B], % on récupère le premier element
+    			B =  [C | D], % le deuxieme element
+    			ttoH(D, Restesol), % on trouve la solution du reste
     			htoT_oneorder(Sol, [A , C]), % il s'agit d'une ordre avec deux sifflets
-    			Y = [Sol | Restesol].
+    			Y = [Sol | Restesol]. % on donne le resultat
 
 	% trois sifflets orders
-	ttoH(X, Y):- X = [A | B],
-    			B =  [C | D],
-    			D =  [E | F],
-    			ttoH(F, Restesol),
+	ttoH(X, Y):- X = [A | B], % on récupère le premier element
+    			B =  [C | D], % le deuxieme element
+    			D =  [E | F], % le troisième element
+    			ttoH(F, Restesol), % on trouve la solution du reste
       			htoT_oneorder(Sol, [A , C, E]), % il s'agit d'une ordre avec trois sifflets
-    			Y = [Sol | Restesol].
+    			Y = [Sol | Restesol]. % on donne le resultat
 
 
 
